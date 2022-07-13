@@ -35,4 +35,8 @@
 
 th, td{
     padding-inline: 15px;
+    border: 1px solid #80808086;
+}
+tr{
+    border: 2px solid #1c1c1c;
 }
