@@ -1,12 +1,15 @@
 import Navbar from "./Component/Navbar";
+import Sidebar from "./Component/Sidebar";
 
-export default function Home(){
+export default function Home() {
     return (
         <div className="App">
             <Navbar />
             <div className="sectors">
-                <div className="">1</div>
-                <div className="">2</div>
+                <Sidebar />
+                <div class ="body">
+                    Add list here
+                </div>
             </div>
         </div>
     );

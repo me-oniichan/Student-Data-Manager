@@ -18,3 +18,11 @@
     display: grid;
     grid-template-columns: 350px 1fr;
 }
+
+.sidebar{
+    border-right: 1px solid black;
+}
+
+.body{
+    padding: 5px;
+}
