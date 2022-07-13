@@ -1,5 +1,6 @@
 import Navbar from "./Component/Navbar";
 import Sidebar from "./Component/Sidebar";
+import Body from "./Component/Body";
 
 export default function Home() {
     return (
@@ -7,9 +8,7 @@ export default function Home() {
             <Navbar />
             <div className="sectors">
                 <Sidebar />
-                <div class ="body">
-                    Add list here
-                </div>
+                <Body/>
             </div>
         </div>
     );

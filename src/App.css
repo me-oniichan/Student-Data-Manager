@@ -21,8 +21,18 @@
 
 .sidebar{
     border-right: 1px solid black;
+    height: 90vh;
 }
 
 .body{
     padding: 5px;
+    height: 90vh;
+}
+
+.shift-right{
+    text-align: right;
+}
+
+th, td{
+    padding-inline: 15px;
 }
