@@ -6,12 +6,12 @@ import { Outlet } from "react-router";
 export default function Home() {
     return (
         <div className="App">
+            <Outlet />
             <Navbar />
             <div className="sectors">
                 <Sidebar />
-                <Body/>
+                <Body />
             </div>
-            <Outlet></Outlet>
         </div>
     );
 }
