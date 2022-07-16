@@ -5,7 +5,7 @@ import {
     SET_LOADING,
 } from "./action.type";
 
-export default (state, action) => {
+export default function reducer (state, action) {
     switch (action.type) {
         case SET_DATA:
             return action.payload == null
@@ -16,6 +16,8 @@ export default (state, action) => {
         case DATA_TO_UPDATE:
             return;
         case CURRENT_DATA:
+            return;
+        default:
             return;
     }
 };

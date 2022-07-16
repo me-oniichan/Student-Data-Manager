@@ -1,15 +1,15 @@
-import firebase from "firebase/app";
-import "firebase/database";
+import { initializeApp } from "firebase/app";
+import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useReducer } from "react";
-import reducer from "./Context/reducer"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddData from "./Component/AddData";
+import { SET_DATA } from "./Context/action.type";
+import reducer from "./Context/reducer";
 import { firebaseConfig } from "./Firebase/firebase_config";
 import Home from "./Home";
-import { SET_DATA } from "./Context/action.type";
 
-firebase.initializeApp(firebaseConfig);
+const firebase = initializeApp(firebaseConfig);
 
 const initialVal = {
     allData: [],
@@ -19,21 +19,18 @@ const initialVal = {
 };
 
 function App() {
+    const [state, dispatch] = useReducer(reducer, initialVal);
 
-    const [state, dispatch] = useReducer(reducer, initialVal)
-
-    useEffect(async() => {
-      //TODO: initiate loading
-      const fetchData = await firebase.database().ref("/");
-      fetchData.on("value", snapshot=>{
-        dispatch(
-          {
-            type : SET_DATA,
-            payload : snapshot.val()
-          }
-        )
-      })
-    }, [])
+    useEffect(async () => {
+        //TODO: initiate loading
+        const fetchData = ref(getDatabase(), "/");
+        onValue(fetchData, (snapshot) => {
+            dispatch({
+                type: SET_DATA,
+                payload: snapshot.val(),
+            });
+        });
+    }, []);
 
     return (
         <Router>
