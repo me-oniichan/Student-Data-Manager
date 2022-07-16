@@ -38,3 +38,7 @@ table{
     color: red;
     cursor: pointer;
 }
+
+.shift-right{
+    text-align: right;
+}
