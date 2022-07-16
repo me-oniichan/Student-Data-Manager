@@ -1,3 +1,6 @@
+import firebase from "firebase/app"
+
+
 export default function Body() {
     return (
         <div className="container-fluid">

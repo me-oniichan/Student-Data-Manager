@@ -1,14 +1,21 @@
-import { CURRENT_DATA, DATA_TO_UPDATE, SET_DATA, SET_LOADING } from "./action.type";
+import {
+    CURRENT_DATA,
+    DATA_TO_UPDATE,
+    SET_DATA,
+    SET_LOADING,
+} from "./action.type";
 
-export default (state, action) =>{
-    switch (action.type){
+export default (state, action) => {
+    switch (action.type) {
         case SET_DATA:
-            return
+            return action.payload == null
+                ? { ...state, allData: [] }
+                : { ...state, allData: action.payload };
         case SET_LOADING:
-            return
+            return;
         case DATA_TO_UPDATE:
-            return
+            return;
         case CURRENT_DATA:
-            return
+            return;
     }
-}
+};
