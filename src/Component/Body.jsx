@@ -10,7 +10,7 @@ export default function Body() {
             {allData.length === 0 ? (<span>Nothing to see here</span>) :
                 (
                     <div className="table-responsive-xl">
-                        <table className="table table-striped table-hover table-bordered">
+                        <table className="table table-striped table-hover table-bordered text-center">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -29,12 +29,12 @@ export default function Body() {
                                     Object.entries(allData).map(([key, value]) => (
                                         <tr key={key}>
                                             <td>{value.name}</td>
-                                            <td>{value.result? "Pass" : "fail"}</td>
-                                            <td className="shift-right">{value.math.total}</td>
-                                            <td className="shift-right">{value.chemistry.total}</td>
-                                            <td className="shift-right">{value.physics.total}</td>
-                                            <td className="shift-right">{value.english.total}</td>
-                                            <td className="shift-right">{value.computer.total}</td>
+                                            <td style={{backgroundColor: value.result? "#38ff3f66" : "red"}}>{value.result? "Pass" : "fail"}</td>
+                                            <td>{value.math.total}</td>
+                                            <td>{value.chemistry.total}</td>
+                                            <td>{value.physics.total}</td>
+                                            <td>{value.english.total}</td>
+                                            <td>{value.computer.total}</td>
                                             <td>{value.remark}</td>
                                             <td>
                                                 <svg
