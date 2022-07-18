@@ -32,6 +32,7 @@
 table{
     border: 1px solid #000000;
     border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .bi-trash3-fill:hover, .bi-pencil-fill:hover{
