@@ -5,14 +5,14 @@ import {
     SET_LOADING,
 } from "./action.type";
 
-export default function reducer (state, action) {
+export default function reducer(state, action) {
     switch (action.type) {
         case SET_DATA:
             return action.payload == null
                 ? { ...state, allData: [] }
                 : { ...state, allData: action.payload };
         case SET_LOADING:
-            return;
+            return { ...state, loading: action.payload };
         case DATA_TO_UPDATE:
             return;
         case CURRENT_DATA:
@@ -20,4 +20,4 @@ export default function reducer (state, action) {
         default:
             return;
     }
-};
+}

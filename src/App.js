@@ -1,21 +1,20 @@
 import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useReducer } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import "./App.css";
 import AddData from "./Component/AddData";
-import { SET_DATA } from "./Context/action.type";
+import { SET_DATA, SET_LOADING } from "./Context/action.type";
 import reducer from "./Context/reducer";
-import {app} from "./Firebase/firebase_config";
+import { app } from "./Firebase/firebase_config";
 import Home from "./Home";
 import dataContext from "./Context/dataContext";
-
-
 
 const initialVal = {
     allData: [],
     dataKey: null,
     updateData: null,
-    loading: false,
+    loading: 1,
 };
 
 function App() {
@@ -23,11 +22,22 @@ function App() {
 
     const getData = async () => {
         //TODO: initiate loading
+
+        dispatch({
+            type: SET_LOADING,
+            payload: true,
+        });
+
         const fetchData = ref(getDatabase(app), "/");
         onValue(fetchData, (snapshot) => {
             dispatch({
                 type: SET_DATA,
                 payload: snapshot.val(),
+            });
+
+            dispatch({
+                type: SET_LOADING,
+                payload: false,
             });
         });
     };

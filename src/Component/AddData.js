@@ -1,10 +1,13 @@
+import { createBrowserHistory } from "history";
+
 export default function AddData() {
     return (
         <div
-            className="modal fade"
+            className="modal fade show"
             id="addpopup"
             tabIndex="-1"
             aria-hidden="true"
+            style={{display : "block"}}
         >
             <div className="modal-dialog">
                 <div className="modal-content">

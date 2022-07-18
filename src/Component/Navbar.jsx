@@ -6,7 +6,7 @@ export default function Navbar() {
             <ul className="container-fluid">
                 <span className="navbar-brand">Student Manage</span>
                 <li className="nav-item">
-                    <Link className="nav-icon" to="add" data-bs-toggle="modal" data-bs-target="#addpopup">
+                    <Link className="nav-icon" to="add">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="25"
