@@ -1,7 +1,6 @@
 import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useReducer } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import "./App.css";
 import AddData from "./Component/AddData";
 import { SET_DATA, SET_LOADING } from "./Context/action.type";
@@ -16,12 +15,11 @@ const initialVal = {
     updateData: null,
     loading: 1,
 };
-
+    
 function App() {
     const [state, dispatch] = useReducer(reducer, initialVal);
 
     const getData = async () => {
-        //TODO: initiate loading
 
         dispatch({
             type: SET_LOADING,
