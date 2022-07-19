@@ -1,41 +1,68 @@
-.navbar-brand{
+.navbar-brand {
     font-weight: 700;
 }
 
-.navbar-brand:hover{
+.navbar-brand:hover {
     color: #ffe100;
 }
 
-.nav-icon{
+.nav-icon {
     color: white;
 }
 
-.nav-icon:hover{
+.nav-icon:hover {
     color: yellow;
 }
 
-.sectors{
+.sectors {
     display: grid;
     grid-template-columns: 350px 1fr;
 }
 
-.sidebar{
+.sidebar {
     border-right: 1px solid black;
     height: 90vh;
 }
 
-.body{
+.body {
     padding: 5px;
     height: 90vh;
 }
 
-table{
+table {
     border: 1px solid #000000;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.bi-trash3-fill:hover, .bi-pencil-fill:hover{
+.bi-trash3-fill:hover,
+.bi-pencil-fill:hover {
     color: red;
     cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.sub-input {
+    text-align: center;
+    font-size: 14px;
+}
+
+.label {
+    background-color: #ebebeb;
+    border-radius: 4px 4px 0 0;
+    padding: 3px;
+}
+
+.form-control {
+    height: 35px;
 }

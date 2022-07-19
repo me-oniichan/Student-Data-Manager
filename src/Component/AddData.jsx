@@ -29,33 +29,37 @@ export default function AddData() {
                     </div>
                     <div className="modal-body">
                         <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Name</span>
+                            <span className="input-group-text" id="inputGroup-sizing-sm">Name</span> <br/>
                             <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
                         </div>
                         <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Result</span>
-                            <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                            <span className="input-group-text">Result</span>
+                            <input type="radio" className="form-control" />
+                        </div>
+                        <div className="input-group input-group-sm mb-3">
+                            <span className="input-group-text">Remark</span>
+                            <input type="radio" className="form-control" />
                         </div>
                         <div className="row g-3">
-                            <div className="input-group input-group-sm mb-3 col">
-                                <span className="input-group-text" id="inputGroup-sizing-sm">Math</span>
-                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                            <div className="col sub-input">
+                                <div className="label">Math</div>
+                                <input type = "number" className="form-control"/>
                             </div>
-                            <div className="input-group input-group-sm mb-3 col">
-                                <span className="input-group-text" id="inputGroup-sizing-sm">Chemistry</span>
-                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                            <div className="col sub-input">
+                                <div className="label">Chemistry</div>
+                                <input type = "number" className="form-control"/>
                             </div>
-                            <div className="input-group input-group-sm mb-3 col">
-                                <span className="input-group-text" id="inputGroup-sizing-sm">Physics</span>
-                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                            <div className="col sub-input">
+                                <div className="label">Physics</div>
+                                <input type = "number" className="form-control"/>
                             </div>
-                            <div className="input-group input-group-sm mb-3 col">
-                                <span className="input-group-text" id="inputGroup-sizing-sm">English</span>
-                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                            <div className="col sub-input">
+                                <div className="label">English</div>
+                                <input type = "number" className="form-control"/>
                             </div>
-                            <div className="input-group input-group-sm mb-3 col">
-                                <span className="input-group-text" id="inputGroup-sizing-sm">Computer</span>
-                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                            <div className="col sub-input">
+                                <div className="label">Computer</div>
+                                <input type = "number" className="form-control"/>
                             </div>
                         </div>
                     </div>
@@ -65,7 +69,7 @@ export default function AddData() {
                             className="btn btn-secondary"
                             data-bs-dismiss="modal"
                         >
-                            Close
+                            Cancel
                         </button>
                         <button type="button" className="btn btn-primary">
                             Save changes
