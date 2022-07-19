@@ -14,7 +14,7 @@ export default function reducer(state, action) {
         case SET_LOADING:
             return { ...state, loading: action.payload };
         case DATA_TO_UPDATE:
-            return;
+            return {...state, dataKey: action.key, updateData: action.payload};
         case CURRENT_DATA:
             return;
         default:
