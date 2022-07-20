@@ -1,12 +1,35 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DATA_TO_UPDATE } from "../Context/action.type";
+import dataContext from "../Context/dataContext";
 
 export default function Navbar() {
+    const { distpatch } = useContext(dataContext);
     return (
         <nav className="navbar navbar-dark bg-dark">
             <ul className="container-fluid">
                 <span className="navbar-brand">Student Manage</span>
                 <li className="nav-item">
-                    <Link className="nav-icon" to="add">
+                    <Link
+                        className="nav-icon"
+                        to="add"
+                        onClick={() => {
+                            distpatch({
+                                type: DATA_TO_UPDATE,
+                                payload: {
+                                    name: "",
+                                    result: 0,
+                                    remark: "",
+                                    math: 0,
+                                    physics: 0,
+                                    chemistry: 0,
+                                    english: 0,
+                                    computer: 0,
+                                },
+                                key: null,
+                            });
+                        }}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="25"
