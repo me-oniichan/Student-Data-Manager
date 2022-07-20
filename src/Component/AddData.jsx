@@ -1,13 +1,15 @@
+import { getDatabase, ref, set } from "firebase/database";
 import { createBrowserHistory } from "history";
 import { useContext, useState } from "react";
+import { v4 } from "uuid";
+import { DATA_TO_UPDATE } from "../Context/action.type";
 import dataContext from "../Context/dataContext";
 
-export default function AddData() {
+export default function AddData({db}) {
     const history = createBrowserHistory();
     const { state, dispatch } = useContext(dataContext);
     const { dataKey, updateData } = state;
     const [data, setData] = useState(updateData.name);
-    const [result, setResult] = useState(updateData.result);
     const [remark, setRemark] = useState(updateData.remark);
     const [marks, setMarks] = useState([
         updateData.math,
@@ -16,6 +18,20 @@ export default function AddData() {
         updateData.chemistry,
         updateData.computer,
     ]);
+
+    const updateFirebase = (key)=>{
+        set(ref(getDatabase(db), "/"+key),{
+            name: data,
+            remark,
+            result: (sum(marks) >= 170),
+            math : marks[0],
+            physics : marks[1],
+            english : marks[2],
+            chemistry : marks[3],
+            computer : marks[4],
+        })
+    }
+
     const changemark = (idx, val) => {
         setMarks(
             marks.map((mark, i) => {
@@ -24,6 +40,15 @@ export default function AddData() {
             })
         );
     };
+
+    const sum = (arr)=>{
+        let res = 0;
+        arr.forEach(element => {
+           res+=element 
+        });
+        return res;
+    }
+
     return (
         <div
             className="modal fade show"
@@ -55,38 +80,13 @@ export default function AddData() {
                                 id="inputGroup-sizing-sm"
                             >
                                 Name
-                            </span>{" "}
+                            </span>
                             <input
                                 type="text"
                                 className="form-control"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-sm"
                                 value={data}
                                 onChange={(e) => {
                                     setData(e.target.value);
-                                }}
-                            />
-                        </div>
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text">Result</span>
-                            <label htmlFor="pass">Pass</label>
-                            <input
-                                type="radio"
-                                id="pass"
-                                name="result"
-                                value="1"
-                                onChange={(e) => {
-                                    console.log(e.target.value);
-                                }}
-                            />
-                            <label htmlFor="fail">Fail</label>
-                            <input
-                                type="radio"
-                                id="fail"
-                                name="result"
-                                value="0"
-                                onChange={(e) => {
-                                    console.log(e.target.value);
                                 }}
                             />
                         </div>
@@ -155,6 +155,23 @@ export default function AddData() {
                             Cancel
                         </button>
                         <button type="button" className="btn btn-primary" onClick={()=>{
+                            const key = dataKey === null? v4() : dataKey;
+                            dispatch({
+                                type: DATA_TO_UPDATE,
+                                payload:{
+                                    name: data,
+                                    remark,
+                                    result: (sum(marks) >= 170),
+                                    math : marks[0],
+                                    physics : marks[1],
+                                    english : marks[2],
+                                    chemistry : marks[3],
+                                    computer : marks[4],
+                                },
+                                key
+                            })
+                            updateFirebase(key);
+                            history.back();
                         }}>
                             Save changes
                         </button>

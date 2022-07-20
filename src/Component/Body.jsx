@@ -36,10 +36,10 @@ export default function Body() {
                                         style={{
                                             backgroundColor: value.result
                                                 ? "#38ff3f66"
-                                                : "red",
+                                                : "#ff3737a1",
                                         }}
                                     >
-                                        {value.result ? "Pass" : "fail"}
+                                        {value.result ? "Pass" : "Fail"}
                                     </td>
                                     <td>{value.math}</td>
                                     <td>{value.chemistry}</td>

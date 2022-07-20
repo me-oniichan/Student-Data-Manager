@@ -37,7 +37,7 @@ table {
 
 .bi-trash3-fill:hover,
 .bi-pencil-fill:hover {
-    color: red;
+    color: #ff3737;
     cursor: pointer;
 }
 

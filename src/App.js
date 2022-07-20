@@ -49,7 +49,7 @@ function App() {
             <dataContext.Provider value={{ state, dispatch }}>
                 <Routes>
                     <Route path="/" element={<Home />}>
-                        <Route path="add" element={<AddData />}></Route>
+                        <Route path="add" element={<AddData db={app}/>}></Route>
                     </Route>
                 </Routes>
             </dataContext.Provider>
