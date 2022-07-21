@@ -73,89 +73,9 @@ export default function AddData({db}) {
                             }}
                         ></button>
                     </div>
-                    <div className="modal-body">
-                        <div className="input-group input-group-sm mb-3">
-                            <span
-                                className="input-group-text"
-                                id="inputGroup-sizing-sm"
-                            >
-                                Name
-                            </span>
-                            <input
-                                type="text"
-                                className="form-control"
-                                value={data}
-                                onChange={(e) => {
-                                    setData(e.target.value);
-                                }}
-                            />
-                        </div>
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text">Remark</span>
-                            <input
-                                type="text"
-                                className="form-control"
-                                value={remark}
-                                onChange={(e) => {
-                                    setRemark(e.target.value);
-                                }}
-                            />
-                        </div>
-                        <div className="row g-3">
-                            <div className="col sub-input">
-                                <div className="label">Math</div>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    value={marks[0]}
-                                    onChange={(e) => {
-                                        changemark(0, e.target.value);
-                                    }}
-                                />
-                            </div>
-                            <div className="col sub-input">
-                                <div className="label">Chemistry</div>
-                                <input type="number" className="form-control" value={marks[3]}
-                                    onChange={(e) => {
-                                        changemark(3, e.target.value);
-                                    }}/>
-                            </div>
-                            <div className="col sub-input">
-                                <div className="label">Physics</div>
-                                <input type="number" className="form-control" value={marks[1]}
-                                    onChange={(e) => {
-                                        changemark(1, e.target.value);
-                                    }} />
-                            </div>
-                            <div className="col sub-input">
-                                <div className="label">English</div>
-                                <input type="number" className="form-control" value={marks[2]}
-                                    onChange={(e) => {
-                                        changemark(2, e.target.value);
-                                    }} />
-                            </div>
-                            <div className="col sub-input">
-                                <div className="label">Computer</div>
-                                <input type="number" className="form-control" value={marks[4]}
-                                    onChange={(e) => {
-                                        changemark(4, e.target.value);
-                                    }} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="modal-footer">
-                        <button
-                            type="button"
-                            className="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                            onClick={() => {
-                                history.back();
-                            }}
-                        >
-                            Cancel
-                        </button>
-                        <button type="button" className="btn btn-primary" onClick={()=>{
-                            const key = dataKey === null? v4() : dataKey;
+                    <form onSubmit={(e)=>{
+                            history.back();
+                            const key = (dataKey === null)? v4() : dataKey;
                             dispatch({
                                 type: DATA_TO_UPDATE,
                                 payload:{
@@ -171,11 +91,101 @@ export default function AddData({db}) {
                                 key
                             })
                             updateFirebase(key);
-                            history.back();
+                            e.preventDefault()
                         }}>
+                    <div className="modal-body">
+                        <div className="input-group input-group-sm mb-3">
+                            <span
+                                className="input-group-text"
+                                id="inputGroup-sizing-sm"
+                            >
+                                Name
+                            </span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={data}
+                                onChange={(e) => {
+                                    setData(e.target.value);
+                                }}
+                                required
+                            />
+                        </div>
+                        <div className="input-group input-group-sm mb-3">
+                            <span className="input-group-text">Remark</span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={remark}
+                                onChange={(e) => {
+                                    setRemark(e.target.value);
+                                }}
+                                required
+                            />
+                        </div>
+                        <div className="row g-3">
+                            <div className="col sub-input">
+                                <div className="label">Math</div>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    value={marks[0]}
+                                    onChange={(e) => {
+                                        changemark(0, e.target.value);
+                                    }}
+                                    required
+                                />
+                            </div>
+                            <div className="col sub-input">
+                                <div className="label">Chemistry</div>
+                                <input type="number" className="form-control" value={marks[3]}
+                                    onChange={(e) => {
+                                        changemark(3, e.target.value);
+                                    }}
+                                    required
+                                />
+                            </div>
+                            <div className="col sub-input">
+                                <div className="label">Physics</div>
+                                <input type="number" className="form-control" value={marks[1]}
+                                    onChange={(e) => {
+                                        changemark(1, e.target.value);
+                                    }}
+                                    required
+                                />
+                            </div>
+                            <div className="col sub-input">
+                                <div className="label">English</div>
+                                <input type="number" className="form-control" value={marks[2]}
+                                    onChange={(e) => {
+                                        changemark(2, e.target.value);
+                                    }} />
+                            </div>
+                            <div className="col sub-input">
+                                <div className="label">Computer</div>
+                                <input type="number" className="form-control" value={marks[4]}
+                                    onChange={(e) => {
+                                        changemark(4, e.target.value);
+                                    }} required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="modal-footer">
+                        <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            onClick={() => {
+                                history.back();
+                            }}
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" className="btn btn-primary">
                             Save changes
                         </button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

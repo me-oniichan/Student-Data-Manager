@@ -16,12 +16,16 @@
 
 .sectors {
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 300px 1fr;
 }
 
 .sidebar {
     border-right: 1px solid black;
     height: 90vh;
+    padding: 10px;
+    margin-left: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;
 }
 
 .body {
@@ -74,4 +78,8 @@ input[type="number"] {
 
 .bi-pencil-fill:hover{
     color: #01cc01;
+}
+
+.average{
+    list-style: none;
 }
