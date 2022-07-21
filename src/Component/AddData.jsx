@@ -18,7 +18,7 @@ export default function AddData({db}) {
         updateData.chemistry,
         updateData.computer,
     ]);
-
+    
     const updateFirebase = (key)=>{
         set(ref(getDatabase(db), "/"+key),{
             name: data,

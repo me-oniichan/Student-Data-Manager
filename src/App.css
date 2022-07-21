@@ -67,3 +67,11 @@ input[type="number"] {
 .form-control {
     height: 35px;
 }
+
+.bi-pencil-fill{
+    color: black;
+}
+
+.bi-pencil-fill:hover{
+    color: #01cc01;
+}
