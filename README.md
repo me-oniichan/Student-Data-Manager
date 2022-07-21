@@ -1,4 +1,4 @@
-# A simple React app to Read, Write and Remove data from firebase-realtime database
+## A simple React app to Read, Write and Remove data from firebase-realtime database
 
 To read the data
 
