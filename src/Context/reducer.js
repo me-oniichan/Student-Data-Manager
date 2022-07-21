@@ -1,5 +1,4 @@
 import {
-    CURRENT_DATA,
     DATA_TO_UPDATE,
     SET_DATA,
     SET_LOADING,
@@ -15,8 +14,6 @@ export default function reducer(state, action) {
             return { ...state, loading: action.payload };
         case DATA_TO_UPDATE:
             return {...state, dataKey: action.key, updateData: action.payload};
-        case CURRENT_DATA:
-            return;
         default:
             return;
     }
