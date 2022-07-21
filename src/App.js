@@ -26,7 +26,7 @@ function App() {
             payload: true,
         });
 
-        const fetchData = ref(getDatabase(app), "/");
+        const fetchData = ref(getDatabase(app), '/');
         onValue(fetchData, (snapshot) => {
             dispatch({
                 type: SET_DATA,
